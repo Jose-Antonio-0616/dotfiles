@@ -1,0 +1,76 @@
+# Kael OS - Tema de Yazi (Cyber-Rasta)
+# Sincronizado con la paleta de colores de Kitty y el Window Manager
+
+[manager]
+# Bordes de paneles
+border_symbol = "│"
+border_style  = { fg = "#4e4e54" }
+
+# Panel activo (resaltado)
+active_border_style = { fg = "#00e676", bold = true }
+
+# Directorio de trabajo actual (CWD)
+cwd = { fg = "#00e676", bold = true }
+
+# Resaltado de búsqueda interna
+find_keyword  = { fg = "#ffdf00", bg = "#1a1a1e", bold = true, italic = true }
+find_position = { fg = "#00e5ff", bg = "#1a1a1e", bold = true }
+
+# Foco y selección (Hover)
+hovered         = { fg = "#00e676", bg = "#1a1a1e", bold = true }
+preview_hovered = { bg = "#1a1a1e" }
+
+# Marcador de selección visual
+marker_selected = { fg = "#ffdf00", bg = "#1a1a1e" }
+marker_copied   = { fg = "#00e676", bg = "#1a1a1e" }
+marker_cut      = { fg = "#ff3a3a", bg = "#1a1a1e" }
+
+[status]
+# Separador de barra de estado
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#1a1a1e", bg = "#1a1a1e" }
+
+# Estilos de modos (Modo Normal, Selección e Input)
+mode_normal = { fg = "#0c0c0e", bg = "#00e676", bold = true }
+mode_select = { fg = "#0c0c0e", bg = "#ffdf00", bold = true }
+mode_unset  = { fg = "#0c0c0e", bg = "#ff3a3a", bold = true }
+
+# Permisos y estadísticas de archivos
+permissions_t = { fg = "#2979ff" }
+permissions_r = { fg = "#ffdf00" }
+permissions_w = { fg = "#ff3a3a" }
+permissions_x = { fg = "#00e676" }
+permissions_s = { fg = "#4e4e54" }
+
+[filetype]
+# Reglas estéticas de colores por extensión/tipo de archivo
+rules = [
+    # Directorios (Azul neón)
+    { mime = "inode/directory", fg = "#2979ff", bold = true },
+    { mime = "dir", fg = "#2979ff", bold = true },
+
+    # Archivos ejecutables / Scripts (Verde Esmeralda)
+    { mime = "application/x-executable", fg = "#00e676", bold = true },
+    { mime = "application/x-shellscript", fg = "#00e676" },
+
+    # Imágenes (Cyan)
+    { mime = "image/*", fg = "#00e5ff" },
+
+    # Videos y Audio (Magenta)
+    { mime = "video/*", fg = "#e040fb" },
+    { mime = "audio/*", fg = "#e040fb" },
+
+    # Documentos PDF y Oficina (Rojo Neón)
+    { mime = "application/pdf", fg = "#ff3a3a" },
+
+    # Comprimidos y Archivos de datos (Dorado)
+    { mime = "application/x-tar", fg = "#ffdf00" },
+    { mime = "application/gzip", fg = "#ffdf00" },
+    { mime = "application/zip", fg = "#ffdf00" },
+    { mime = "application/x-7z-compressed", fg = "#ffdf00" },
+    { mime = "application/x-rar", fg = "#ffdf00" },
+
+    # Archivos de configuración y código (Gris claro)
+    { mime = "text/*", fg = "#e0e0e0" }
+]

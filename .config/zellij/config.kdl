@@ -1,0 +1,28 @@
+// Kael OS - Configuración de Zellij
+// Tema: Cyber-Rasta
+
+theme "cyber_rasta"
+
+themes {
+    cyber_rasta {
+        fg "#e0e0e0"
+        bg "#1a1a1e"
+        black "#0c0c0e"
+        red "#ff3a3a"
+        green "#00e676"
+        yellow "#ffdf00"
+        blue "#2979ff"
+        magenta "#e040fb"
+        cyan "#00e5ff"
+        white "#ffffff"
+        orange "#ff9100"
+    }
+}
+
+// ─── OPCIONES GENERALES ──────────────────────────────────────────────
+default_layout "compact"
+pane_frames false
+simplified_ui true
+theme "cyber_rasta"
+default_shell "zsh"
+copy_on_select true

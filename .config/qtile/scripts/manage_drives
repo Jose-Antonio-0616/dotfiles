@@ -1,0 +1,43 @@
+#!/bin/bash
+# Kael OS - Selector y Gestor de Dispositivos de Almacenamiento Dinámico (vía Rofi)
+
+# Obtener lista de carpetas en /media/jose
+drives=()
+for d in /media/jose/*; do
+    [ -d "$d" ] && drives+=("$(basename "$d")")
+done
+
+if [ ${#drives[@]} -eq 0 ]; then
+    notify-send "Almacenamiento" "No hay dispositivos externos montados." -u low
+    exit 0
+fi
+
+# Seleccionar dispositivo a gestionar
+chosen_drive=$(printf '%s\n' "${drives[@]}" | rofi -dmenu -i -p "Dispositivo" -theme "$HOME/.config/qtile/rofi/config.rasi")
+[ -z "$chosen_drive" ] && exit 0
+
+MOUNT_PATH="/media/jose/$chosen_drive"
+BLOCK_DEV=$(findmnt -n -o SOURCE "$MOUNT_PATH")
+if [ -z "$BLOCK_DEV" ]; then
+    notify-send "Almacenamiento" "No se encontró el dispositivo de bloque para $chosen_drive" -u critical
+    exit 1
+fi
+
+# Seleccionar acción (Desmontar o Expulsar)
+action=$(printf "Desmontar\nExpulsar" | rofi -dmenu -i -p "Acción para $chosen_drive" -theme "$HOME/.config/qtile/rofi/config.rasi")
+[ -z "$action" ] && exit 0
+
+if [ "$action" = "Desmontar" ]; then
+    if udisksctl unmount -b "$BLOCK_DEV"; then
+        notify-send "Almacenamiento" "$chosen_drive desmontado con éxito" -u low -t 2000
+    else
+        notify-send "Almacenamiento" "Error al desmontar $chosen_drive" -u critical
+    fi
+elif [ "$action" = "Expulsar" ]; then
+    PARENT_DEV=$(echo "$BLOCK_DEV" | sed 's/[0-9]*$//')
+    if udisksctl unmount -b "$BLOCK_DEV" && udisksctl power-off -b "$PARENT_DEV"; then
+        notify-send "Almacenamiento" "$chosen_drive expulsado con éxito" -u low -t 2000
+    else
+        notify-send "Almacenamiento" "Error al expulsar $chosen_drive" -u critical
+    fi
+fi

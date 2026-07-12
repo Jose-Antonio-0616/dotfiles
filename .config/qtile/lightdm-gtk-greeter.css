@@ -1,0 +1,137 @@
+/* Kael OS - Estilizado Cyber-Rasta para LightDM GTK Greeter */
+
+/* Sobreescribir las variables globales de selección de GTK3 */
+@define-color theme_selected_bg_color #00e676;
+@define-color theme_selected_fg_color #0c0c0e;
+@define-color theme_selected_border_color #00e676;
+@define-color theme_border_color #4e4e54;
+@define-color theme_base_color #1a1a1e;
+@define-color theme_text_color #e0e0e0;
+@define-color theme_fg_color #e0e0e0;
+@define-color theme_bg_color #0c0c0e;
+
+/* Anular colores de selección y bordes globales */
+* {
+    selection-background-color: #00e676 !important;
+    selection-color: #0c0c0e !important;
+    outline-color: #00e676 !important;
+}
+
+*:selected, *:selected:focus {
+    background-color: #00e676 !important;
+    color: #0c0c0e !important;
+}
+
+/* Recuadro principal (login container) - Compatibilidad con guiones y guiones bajos */
+#login_window, #login-window, .login-window {
+    background-color: #0c0c0e !important;
+    background-image: none !important;
+    border: 2px solid #00e676 !important; /* Todo el borde verde */
+    border-top: 2px solid #00e676 !important; /* Línea superior forzada verde */
+    border-radius: 8px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9) !important;
+    padding: 24px !important;
+}
+
+/* Nombre de usuario y etiquetas */
+label {
+    color: #e0e0e0 !important;
+    text-shadow: none !important;
+}
+
+/* Foto de perfil (Avatar) y sus contenedores circulares */
+#user_image, #user-image, .user-image, #user_image_box, #user-image-box, #user-picture, #user_picture, .avatar, .user-picture {
+    border: 2px solid #00e676 !important; /* Contorno de foto verde */
+    outline-color: #00e676 !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
+/* Campo de entrada de contraseña */
+entry, #password_entry, #entry {
+    background-color: #1a1a1e !important;
+    border: 1px solid #4e4e54 !important;
+    border-radius: 4px !important;
+    color: #e0e0e0 !important;
+    padding: 8px !important;
+    font-weight: bold !important;
+    caret-color: #00e676 !important; /* Cursor de texto verde */
+}
+
+/* Selección de texto dentro de inputs */
+entry selection {
+    background-color: #00e676 !important;
+    color: #0c0c0e !important;
+}
+
+/* Efecto focus sobre el input de contraseña */
+entry:focus, #password_entry:focus, #entry:focus {
+    border-color: #00e676 !important;
+    box-shadow: 0 0 8px rgba(0, 230, 118, 0.6) !important;
+}
+
+/* Combobox de selección de usuario */
+combobox, .combobox, #user_combobox, #user-combobox {
+    background-color: #1a1a1e !important;
+    border: 1px solid #4e4e54 !important;
+    border-radius: 4px !important;
+    color: #e0e0e0 !important;
+    outline-color: #00e676 !important;
+}
+
+combobox:focus, combobox:active, combobox *:focus, combobox *:active {
+    border-color: #00e676 !important;
+    outline-color: #00e676 !important;
+}
+
+combobox button {
+    background-color: #1a1a1e !important;
+    border: none !important;
+}
+
+/* Reloj de la pantalla de bloqueo */
+#clock_label {
+    color: #ffdf00 !important; /* Reloj Dorado */
+    font-weight: bold !important;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Botones de acción generales */
+button {
+    background-color: #1a1a1e !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #4e4e54 !important;
+}
+
+button:hover, button:focus {
+    background-color: #1a1a1e !important;
+    color: #00e676 !important;
+    border-color: #00e676 !important;
+}
+
+/* Botón de inicio de sesión específico de LightDM */
+#login_button {
+    background-color: #00e676 !important;
+    color: #0c0c0e !important;
+}
+
+#login_button:hover {
+    background-color: #00c853 !important;
+}
+
+/* Botones e indicadores de la barra de menús */
+menubar, menuitem {
+    background-color: #0c0c0e !important;
+    color: #e0e0e0 !important;
+}
+
+menu {
+    background-color: #0c0c0e !important;
+    border: 1px solid #4e4e54 !important;
+    border-radius: 4px !important;
+}
+
+menuitem:hover {
+    background-color: #1a1a1e !important;
+    color: #00e676 !important;
+}
