@@ -1,0 +1,7 @@
+# Kael OS - Configuración de LazySQL
+# Conexiones de Base de Datos
+
+[[database]]
+Name = 'Local SQLite (Test)'
+Provider = 'sqlite3'
+URL = '/home/jose/dev/local.db'

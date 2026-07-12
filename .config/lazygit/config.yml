@@ -1,0 +1,29 @@
+# Kael OS - Configuración de Lazygit
+# Tema: Cyber-Rasta
+
+gui:
+  theme:
+    activeBorderColor:
+      - '#00e676' # Verde Esmeralda
+      - 'bold'
+    inactiveBorderColor:
+      - '#4e4e54' # Gris
+    searchingActiveBorderColor:
+      - '#ffdf00' # Amarillo/Dorado
+      - 'bold'
+    optionsTextColor:
+      - '#e0e0e0' # Gris Claro
+    selectedLineBgColor:
+      - '#1a1a1e' # Fondo de selección
+    selectedRangeBgColor:
+      - '#1a1a1e'
+    cherryPickedCommitFgColor:
+      - '#00e676'
+    cherryPickedCommitBgColor:
+      - '#1a1a1e'
+    markedBaseCommitColor:
+      - '#ffdf00'
+    unstagedChangesColor:
+      - '#ff3a3a' # Rojo Neón para cambios sin preparar
+    defaultFgColor:
+      - '#e0e0e0'

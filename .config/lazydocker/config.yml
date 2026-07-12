@@ -1,0 +1,21 @@
+# Kael OS - Configuración de Lazydocker
+# Tema: Cyber-Rasta
+
+gui:
+  theme:
+    activeBorderColor:
+      - '#00e676' # Verde Esmeralda
+      - 'bold'
+    inactiveBorderColor:
+      - '#4e4e54' # Gris
+    searchingActiveBorderColor:
+      - '#ffdf00' # Amarillo/Dorado
+      - 'bold'
+    optionsTextColor:
+      - '#e0e0e0'
+    selectedLineBgColor:
+      - '#1a1a1e' # Fondo de selección
+    selectedRangeBgColor:
+      - '#1a1a1e'
+    defaultFgColor:
+      - '#e0e0e0'
