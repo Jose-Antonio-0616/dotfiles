@@ -37,3 +37,5 @@ if [ ! -f "$HOME/.cache/qtile/welcomed" ]; then
 		"Press Super + / anytime to see all keybindings.&#10;See ~/QUICKSTART-qtile.md for a cheat sheet.") &
 fi
 
+# Run pending updates checker
+check-updates &

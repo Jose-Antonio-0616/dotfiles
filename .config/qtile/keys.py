@@ -157,6 +157,7 @@ keys = [
     Key([mod], "o", lazy.spawn("obs"), desc="Launch OBS"),
     Key([mod], "slash", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/help")), desc="Show keybindings"),
     Key([mod, "shift"], "t", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/thememenu")), desc="Theme switcher"),
+    Key([mod, "shift"], "b", lazy.spawn("dotfiles-sync"), desc="Backup and sync dotfiles"),
 
 # === WINDOW NAVIGATION ===
     Key([mod], "Left", lazy.function(focus_left()), desc="Focus left"),

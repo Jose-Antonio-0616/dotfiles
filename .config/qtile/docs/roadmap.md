@@ -33,6 +33,7 @@ Este documento traza las fases de desarrollo y optimizaciones futuras planificad
 *   [x] Configurar Scratchpads de sistema para usar Kitty (con soporte para tema Cyber-Rasta).
 *   [x] Solucionar el problema de resolución y posicionamiento del monitor secundario HDMI-1 (1920x1080) en autostart.sh.
 
-### Fase 5: Automatización del Mantenimiento y Dotfiles
-*   [ ] Desarrollar un script centralizado de sincronización para realizar copias de seguridad de todos los dotfiles de Kael OS (`~/.config/qtile/`, `~/.config/kitty/`, `~/.config/nvim/`) hacia un repositorio de Git privado.
-*   [ ] Implementar un cron o daemon ligero que notifique mediante Dunst si existen actualizaciones de seguridad o del sistema Debian pendientes.
+### Fase 5: Automatización del Mantenimiento y Dotfiles (Completado)
+*   [x] Desarrollar un script de sincronización centralizado (`dotfiles-sync`) para respaldar configuraciones críticas (Qtile, Kitty, Neovim, Yazi, Zellij, Fish, SSH y Just) bajo el directorio `~/dotfiles/` utilizando control de versiones Git.
+*   [x] Crear atajo de teclado en `keys.py` (`Super + Shift + B`) para lanzar el respaldo y notificar al usuario sobre cambios detectados.
+*   [x] Desarrollar un script de comprobación de actualizaciones de sistema (`check-updates`) que alerta visualmente vía Dunst si hay actualizaciones, integrado en el inicio del sistema a través de `autostart.sh`.
