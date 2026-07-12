@@ -1,0 +1,43 @@
+#!/bin/bash
+# Kael OS - Cambiador Interactivo de Fondos de Pantalla (Rofi + Feh)
+set -eu
+
+export PATH="$HOME/.local/bin:$PATH"
+
+WALLPAPER_DIR="$HOME/.config/qtile/wallpaper"
+AUTOSTART="$HOME/.config/qtile/scripts/autostart.sh"
+ROFI_THEME="$HOME/.config/qtile/rofi/config.rasi"
+
+if [ ! -d "$WALLPAPER_DIR" ]; then
+    notify-send "Wallpaper Menu" "No existe el directorio de fondos en $WALLPAPER_DIR" -u critical
+    exit 1
+fi
+
+# Buscar imágenes de fondo disponibles
+files=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.svg" \) -printf "%f\n" | sort)
+
+if [ -z "$files" ]; then
+    notify-send "Wallpaper Menu" "No se encontraron imágenes en $WALLPAPER_DIR" -u critical
+    exit 1
+fi
+
+# Lanzar Rofi para seleccionar el fondo
+chosen=$(echo "$files" | rofi -dmenu -i -p "Seleccionar Fondo" -theme "$ROFI_THEME")
+
+[ -z "$chosen" ] && exit 0
+
+target_file="$WALLPAPER_DIR/$chosen"
+
+if [ -f "$target_file" ]; then
+    # Aplicar fondo de pantalla al instante
+    feh --bg-scale "$target_file"
+    
+    # Hacer la selección persistente modificando autostart.sh
+    if [ -f "$AUTOSTART" ]; then
+        sed -i "s|feh --bg-scale.*|feh --bg-scale $target_file \&|" "$AUTOSTART"
+    fi
+    
+    notify-send -u normal -i image-x-generic "Fondo de Pantalla" "Cambiado a $chosen exitosamente."
+else
+    notify-send "Wallpaper Menu" "Error: El archivo seleccionado no existe." -u critical
+fi
