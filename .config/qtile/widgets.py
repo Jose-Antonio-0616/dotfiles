@@ -471,7 +471,7 @@ def create_vertical_separator():
 
 # Lista de widgets para la barra lateral izquierda (Panel Contextual)
 left_widgets = [
-    widget.Spacer(length=12),
+    widget.Spacer(length=16),
     
     # Sección 1 - Ventanas Abiertas (Iconos dinámicos en lista vertical)
     widget.GenPollText(
@@ -486,9 +486,9 @@ left_widgets = [
         }
     ),
     
-    widget.Spacer(length=12),
+    widget.Spacer(), # Distribución vertical flexible
     create_vertical_separator(),
-    widget.Spacer(length=12),
+    widget.Spacer(), # Distribución vertical flexible
     
     # Sección 2 - Almacenamiento Dinámico (Solo iconos)
     widget.GenPollText(
@@ -504,9 +504,9 @@ left_widgets = [
         }
     ),
     
-    widget.Spacer(length=12),
+    widget.Spacer(), # Distribución vertical flexible
     create_vertical_separator(),
-    widget.Spacer(length=12),
+    widget.Spacer(), # Distribución vertical flexible
     
     # Sección 3 - Hardware Activo (Solo iconos)
     widget.GenPollText(
@@ -518,9 +518,9 @@ left_widgets = [
         padding=0,
     ),
     
-    widget.Spacer(length=12),
+    widget.Spacer(), # Distribución vertical flexible
     create_vertical_separator(),
-    widget.Spacer(length=12),
+    widget.Spacer(), # Distribución vertical flexible
     
     # Sección 4 - Contexto de Desarrollo (Solo iconos)
     widget.GenPollText(
@@ -532,7 +532,6 @@ left_widgets = [
         padding=0,
     ),
     
-    widget.Spacer(length=12),
-    widget.Spacer(),
+    widget.Spacer(length=16),
 ]
 
