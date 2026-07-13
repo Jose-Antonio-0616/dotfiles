@@ -6,7 +6,18 @@
 
 ## 🚀 Inicio Rápido
 *   **Atajo en Qtile**: Presiona `Super + W` para abrir `w3m` directamente en una terminal Kitty con Google de página de inicio.
-*   **Lanzar manualmente**: `w3m <URL>` (ej: `w3m https://www.google.com`).
+*   **Lanzar manualmente**: `w3m <URL>` (ej: `w3m https://html.duckduckgo.com`).
+
+---
+
+## ⚠️ Advertencia de Compatibilidad (Google y JavaScript)
+> [!WARNING]
+> Google y otros motores pesados implementan bloqueos y alertas de seguridad ("Navegador no compatible") cuando detectan navegadores de terminal sin JavaScript (como `w3m` y `lynx`).
+> 
+> **Solución Recomendada**:
+> Para una experiencia de búsqueda en terminal fluida y 100% libre de advertencias, utiliza **DuckDuckGo HTML / Lite**:
+> *   **DuckDuckGo HTML**: `https://html.duckduckgo.com` (Altamente recomendado, carga limpia y rápida).
+> *   **DuckDuckGo Lite**: `https://lite.duckduckgo.com` (Versión minimalista de solo texto).
 
 ---
 
@@ -21,11 +32,11 @@
 
 ### Búsqueda e Introducción de Texto (Muy Importante)
 > [!IMPORTANT]
-> **Cómo escribir en campos de búsqueda (ej: Google)**:
-> 1. Mueve el cursor con las flechas o haz click sobre la caja de texto.
+> **Cómo escribir en campos de búsqueda (formularios)**:
+> 1. Mueve el cursor con las flechas o haz click sobre la caja de texto (campo de entrada).
 > 2. Presiona **`Enter`**. Verás que en la línea inferior de la terminal aparece un prompt que te permite escribir.
 > 3. Escribe tu búsqueda y presiona **`Enter`** de nuevo para confirmar el texto en el campo.
-> 4. Haz click o presiona `Enter` sobre el botón "Buscar" (o presiona `Enter` sobre la misma caja en algunos casos).
+> 4. Desplázate (o haz click) sobre el botón de enviar ("Search" o "Buscar") y presiona `Enter`.
 
 *   `/`: Buscar texto dentro de la página actual (`n` para ir al siguiente resultado).
 

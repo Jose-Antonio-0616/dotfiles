@@ -6,7 +6,18 @@
 
 ## 🚀 Inicio Rápido
 *   **Atajo en Qtile**: Presiona `Super + Shift + W` para abrir `lynx` directamente en una terminal Kitty con Google.
-*   **Lanzar manualmente**: `lynx <URL>` (ej: `lynx https://www.google.com`).
+*   **Lanzar manualmente**: `lynx <URL>` (ej: `lynx https://html.duckduckgo.com`).
+
+---
+
+## ⚠️ Advertencia de Compatibilidad (Google y JavaScript)
+> [!WARNING]
+> Google y otros sitios modernos muestran bloqueos ("Navegador no compatible") cuando detectan navegadores sin soporte para JavaScript como `lynx`.
+> 
+> **Solución Recomendada**:
+> Para buscar en terminal de manera fluida, se recomienda usar **DuckDuckGo HTML / Lite**:
+> *   **DuckDuckGo HTML**: `https://html.duckduckgo.com` (Soporta tablas y es rápido).
+> *   **DuckDuckGo Lite**: `https://lite.duckduckgo.com` (Texto puro ideal para Lynx).
 
 ---
 
@@ -19,7 +30,7 @@
 *   `Espacio` / `b`: Avanzar / Retroceder página completa.
 
 ### Introducción de Texto
-*   Lynx activa los campos de texto automáticamente cuando el cursor se sitúa en ellos. Puedes empezar a escribir directamente.
+*   En Lynx, los campos de texto se activan automáticamente cuando el cursor se sitúa en ellos. Puedes empezar a escribir directamente.
 *   Presiona `Enter` para enviar el formulario o confirmar.
 
 ### Utilidades
