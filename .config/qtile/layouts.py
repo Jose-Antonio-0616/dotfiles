@@ -4,37 +4,25 @@ from theme import colors, backgroundColor, foregroundColor, workspaceColor, fore
 
 # Define layouts and layout themes
 layout_theme = {
-    "margin": 5,
-    "border_width": 4,
+    "margin": 8,
+    "border_width": 3,
     "border_focus": colors[3],
     "border_normal": colors[1]
 }
 
 # Layout preference by monitor type:
 # MonadTall - Default layout (master-stack tiling)
-# BSP - Traditional monitors (16:9, 4:3)
-# Columns - Ultrawide monitors (21:9, 32:9)
+# MonadWide - Rotated monitor (horizontal master-stack tiling)
+# Max - Fullscreen focused window
+# Spiral - Fibonacci spiral layout
+# Matrix - Grid-style layout
 layouts = [
     layout.MonadTall(**layout_theme),
-    layout.Bsp(**layout_theme),
-    layout.Columns(**layout_theme, num_columns=3),
-    layout.Max(**layout_theme),
-    layout.TreeTab(
-        active_bg=colors[3][0],
-        active_fg=backgroundColor,
-        inactive_bg=colors[1][0],
-        inactive_fg=foregroundColor,
-        bg_color=backgroundColor,
-        border_width=2,
-        font='Roboto Mono Nerd Font',
-        fontsize=14,
-        panel_width=200,
-        sections=['Main'],
-        section_fontsize=14,
-        section_fg=foregroundColorTwo,
-    ),
+    layout.MonadWide(**layout_theme),
+    layout.Max(border_width=0, margin=0),
+    layout.Spiral(**layout_theme),
+    layout.Matrix(**layout_theme, columns=2),
     layout.Floating(**layout_theme),
-    layout.Zoomy(**layout_theme),
 ]
 
 floating_layout = layout.Floating(
