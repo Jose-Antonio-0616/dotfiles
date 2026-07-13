@@ -224,7 +224,8 @@ keys = [
 # === LAYOUTS ===
     Key([mod], "Tab", lazy.next_layout(), lazy.function(notify_layout()), desc="Cycle layouts"),
     Key([mod], "t", lazy.layout.toggle_split(), desc="Toggle split direction (BSP)"),
-    Key([mod], "w", lazy.spawn("kitty -e w3m https://duckduckgo.com"), desc="Launch w3m terminal web browser"),
+    Key([mod], "w", lazy.spawn("kitty -e w3m https://www.google.com"), desc="Launch w3m terminal web browser"),
+    Key([mod, "shift"], "w", lazy.spawn("kitty -e lynx https://www.google.com"), desc="Launch lynx terminal web browser"),
     Key([mod, "shift"], "y", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/layoutmenu")), desc="Layout menu"),
 
 # === WINDOW STATE ===

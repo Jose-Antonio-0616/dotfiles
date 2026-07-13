@@ -33,7 +33,7 @@ Kael OS define un conjunto de aplicaciones robustas, ligeras y con interfaces de
 
 ## 6. Navegación Web y Multimedia
 *   **Brave Browser (Pendiente) / Firefox (Instalado):** Brave es el navegador principal objetivo por su rendimiento y bloqueo nativo de anuncios. Firefox actúa como respaldo estable instalado.
-*   **lynx / w3m (Instalados):** Navegadores web en terminal para lectura rápida de documentación sin interfaz gráfica.
+*   **w3m & lynx (Instalados y Configurados):** Navegadores web en terminal para lectura rápida de documentación sin interfaz gráfica. `w3m` (mapeado a `Super + W`) está optimizado con navegación Vim, soporte de ratón y página de inicio en Google. `lynx` (mapeado a `Super + Shift + W`) es de solo texto puro.
 *   **mpv (Instalado y Configurado):** Reproductor multimedia minimalista de alto rendimiento controlado por teclado.
 
 ## 7. Ecosistema de Interfaces TUI ("Lazy")

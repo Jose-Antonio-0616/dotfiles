@@ -14,6 +14,7 @@ anchor_color green
 visited_anchor_color yellow
 
 # --- COMPORTAMIENTO ---
+home https://www.google.com
 use_cookie 1
 accept_cookie 1
 show_cookie 0
