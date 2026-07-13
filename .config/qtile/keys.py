@@ -52,6 +52,38 @@ def toggle_float_center():
                 window.center()
     return _toggle_float_center
 
+def go_to_group(name):
+    """Switch to group forcing specific monitor routing"""
+    def _go_to_group(qtile):
+        group_to_screen = {
+            '1': 0,
+            '2': 0,
+            '3': 0,
+            '4': 1,
+            '5': 1,
+        }
+        target_screen = group_to_screen.get(name, 0)
+        
+        # Fallback to screen 0 if target screen doesn't exist (HDMI-1 disconnected)
+        if target_screen >= len(qtile.screens):
+            target_screen = 0
+            
+        qtile.focus_screen(target_screen)
+        qtile.groups_map[name].toscreen()
+    return _go_to_group
+
+def move_to_group(name):
+    """Move focused window to group keeping strict monitor mapping"""
+    def _move_to_group(qtile):
+        window = qtile.current_window
+        if window:
+            window.togroup(name)
+            # Focus correct screen and group
+            _go_to_group = go_to_group(name)
+            _go_to_group(qtile)
+    return _move_to_group
+
+
 def resize_left():
     """Resize window left - intuitive based on focus"""
     def _resize_left(qtile):
@@ -155,6 +187,7 @@ keys = [
     Key([mod], "slash", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/help")), desc="Show keybindings"),
     Key([mod, "shift"], "t", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/wallpapermenu")), desc="Wallpaper switcher"),
     Key([mod, "shift"], "b", lazy.spawn("dotfiles-sync"), desc="Backup and sync dotfiles"),
+    Key([mod, "shift"], "d", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/displaymenu")), desc="Configure screen layouts"),
 
 # === WINDOW NAVIGATION ===
     Key([mod], "Left", lazy.function(focus_left()), desc="Focus left"),
@@ -217,24 +250,24 @@ keys = [
     Key([mod], "Print", lazy.spawn("flameshot gui --path " + os.path.expanduser("~/Screenshots/")), desc="Screenshot (region)"),
 ]
 
-# Switch to groups key bindings
+# Switch to groups key bindings using custom strict monitor mapping
 for i in groups:
     if i.name != "scratchpad":  # Skip scratchpad groups
         keys.extend(
             [
-                # mod1 + letter of group = switch to group
+                # mod + letter of group = switch to group on its designated screen
                 Key(
                     [mod],
                     i.name,
-                    lazy.group[i.name].toscreen(),
+                    lazy.function(go_to_group(i.name)),
                     desc="Switch to group {}".format(i.name),
                 ),
-                # mod1 + shift + letter of group = switch to & move focused window to group
+                # mod + shift + letter of group = move focused window to group and switch to it
                 Key(
                     [mod, "shift"],
                     i.name,
-                    lazy.window.togroup(i.name, switch_group=True),
-                    desc="Switch to & move focused window to group {}".format(i.name),
+                    lazy.function(move_to_group(i.name)),
+                    desc="Move focused window to group {}".format(i.name),
                 ),
             ]
         )

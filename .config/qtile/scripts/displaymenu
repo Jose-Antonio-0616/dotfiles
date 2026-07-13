@@ -1,0 +1,56 @@
+#!/bin/bash
+# Kael OS - Selector Interactivo de Pantallas (Rofi + xrandr)
+set -eu
+
+export PATH="$HOME/.local/bin:$PATH"
+
+AUTOSTART="$HOME/.config/qtile/scripts/autostart.sh"
+ROFI_THEME="$HOME/.config/qtile/rofi/config.rasi"
+
+# Opciones del menú
+opt_laptop="1. Solo Laptop (Apagar HDMI)"
+opt_hdmi_horiz="2. HDMI Horizontal (Derecha)"
+opt_hdmi_vert_l="3. HDMI Vertical (Derecha - Rotado Izquierda)"
+opt_hdmi_vert_r="4. HDMI Vertical (Derecha - Rotado Derecha)"
+
+options="$opt_laptop\n$opt_hdmi_horiz\n$opt_hdmi_vert_l\n$opt_hdmi_vert_r"
+
+chosen=$(echo -e "$options" | rofi -dmenu -i -p "Configurar Pantallas" -theme "$ROFI_THEME")
+
+[ -z "$chosen" ] && exit 0
+
+echo "Opción seleccionada: $chosen"
+
+# Comando base xrandr
+case "$chosen" in
+    "$opt_laptop")
+        xrandr --output LVDS-1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output HDMI-1 --off
+        notify-send "Monitores" "Pantalla externa desactivada."
+        ;;
+    "$opt_hdmi_horiz")
+        xrandr --output LVDS-1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --right-of LVDS-1 --rotate normal
+        notify-send "Monitores" "HDMI horizontal configurado a la derecha."
+        ;;
+    "$opt_hdmi_vert_l")
+        xrandr --output LVDS-1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --right-of LVDS-1 --rotate left
+        notify-send "Monitores" "HDMI vertical configurado (Rotado Izquierda)."
+        ;;
+    "$opt_hdmi_vert_r")
+        xrandr --output LVDS-1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --right-of LVDS-1 --rotate right
+        notify-send "Monitores" "HDMI vertical configurado (Rotado Derecha)."
+        ;;
+    *)
+        exit 0
+        ;;
+esac
+
+# 1. Forzar a Qtile a reconfigurar las pantallas (detectar HDMI conectado/desconectado)
+qtile cmd-obj -o cmd -f reconfigure_screens
+
+# 2. Recargar fondo de pantalla en todas las pantallas sin estirar
+if [ -f "$AUTOSTART" ]; then
+    wp_cmd=$(grep "feh" "$AUTOSTART" | sed 's/&//' | head -n 1)
+    if [ -n "$wp_cmd" ]; then
+        eval "$wp_cmd"
+    fi
+fi

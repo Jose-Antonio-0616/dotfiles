@@ -11,7 +11,7 @@ else
 fi
 
 # background
-feh --bg-scale /home/jose/.config/qtile/wallpaper/rasta_3.jpeg &
+feh --bg-center --image-bg black /home/jose/.config/qtile/wallpaper/rasta_3.jpeg &
 
 # GTK live theme updates
 xsettingsd &
