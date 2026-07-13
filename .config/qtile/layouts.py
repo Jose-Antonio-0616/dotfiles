@@ -19,6 +19,7 @@ layout_theme = {
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
+    layout.Bsp(**layout_theme),
     layout.Max(border_width=0, margin=0),
     layout.Spiral(**layout_theme),
     layout.Matrix(**layout_theme, columns=2),
