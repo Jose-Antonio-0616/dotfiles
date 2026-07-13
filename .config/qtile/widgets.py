@@ -88,7 +88,7 @@ def get_battery_percent():
 
 # Updated widget defaults to match Polybar styling
 widget_defaults = dict(
-    font='Roboto Mono Nerd Font',
+    font='CaskaydiaCove Nerd Font',
     background=backgroundColor,
     foreground=foregroundColor,
     fontsize=16,
