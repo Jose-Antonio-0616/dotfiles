@@ -327,13 +327,13 @@ def get_open_windows_icons():
     if not qtile:
         return "󰖲"
     icon_map = {
-        "kitty": "",
-        "st": "",
-        "firefox-esr": "",
-        "firefox": "",
-        "brave-browser": "",
-        "brave": "",
-        "helium": "",
+        "kitty": "",
+        "st": "",
+        "firefox-esr": "󰈹",
+        "firefox": "󰈹",
+        "brave-browser": "󰖟",
+        "brave": "󰖟",
+        "helium": "󰖟",
         "thunar": "",
         "geany": "",
         "neovim": "",
