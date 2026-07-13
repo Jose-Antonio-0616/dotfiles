@@ -16,14 +16,12 @@ layout_theme = {
 # Bsp - Dynamic manual splits (fair=False)
 # Bsp Fair - Dynamic auto-balanced splits (fair=True)
 # Max - Fullscreen focused window
-# Matrix - Grid-style layout
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
     layout.Bsp(name="bsp", **layout_theme, fair=False),
     layout.Bsp(name="bsp_fair", **layout_theme, fair=True),
     layout.Max(border_width=0, margin=0),
-    layout.Matrix(**layout_theme, columns=2),
     layout.Floating(**layout_theme),
 ]
 
