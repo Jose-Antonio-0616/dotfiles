@@ -334,12 +334,12 @@ def get_open_windows_icons():
         "brave-browser": "󰖟",
         "brave": "󰖟",
         "helium": "󰖟",
-        "thunar": "",
-        "geany": "",
-        "neovim": "",
-        "gimp": "",
+        "thunar": "󰉋",
+        "geany": "",
+        "neovim": "",
+        "gimp": "󰏘",
         "discord": "󰙯",
-        "obs": "",
+        "obs": "󰕧",
     }
     class_counts = {}
     for group in qtile.groups:
@@ -352,7 +352,7 @@ def get_open_windows_icons():
                 class_counts[cls] = class_counts.get(cls, 0) + 1
     icons = []
     for cls, count in class_counts.items():
-        icon = icon_map.get(cls, "")
+        icon = icon_map.get(cls, "󰖲")
         if count > 1:
             icons.append(f"{icon}×{count}")
         else:
