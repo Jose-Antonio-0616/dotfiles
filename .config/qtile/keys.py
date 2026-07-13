@@ -56,11 +56,11 @@ def go_to_group(name):
     """Switch to group forcing specific monitor routing"""
     def _go_to_group(qtile):
         group_to_screen = {
-            '1': 0,
-            '2': 0,
-            '3': 0,
-            '4': 1,
-            '5': 1,
+            '1': 0, # WS1: Term -> Laptop
+            '2': 1, # WS2: Code -> HDMI Externo
+            '3': 0, # WS3: Web/Preview -> Laptop
+            '4': 1, # WS4: Files/Media -> HDMI Externo
+            '5': 0, # WS5: Chat/Comms -> Laptop
         }
         target_screen = group_to_screen.get(name, 0)
         
