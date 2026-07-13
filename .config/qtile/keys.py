@@ -224,7 +224,7 @@ keys = [
 # === LAYOUTS ===
     Key([mod], "Tab", lazy.next_layout(), lazy.function(notify_layout()), desc="Cycle layouts"),
     Key([mod], "t", lazy.layout.toggle_split(), desc="Toggle split direction (BSP)"),
-    Key([mod], "w", lazy.function(toggle_treetab()), desc="Toggle tab group (TreeTab)"),
+    Key([mod], "w", lazy.spawn("kitty -e w3m https://duckduckgo.com"), desc="Launch w3m terminal web browser"),
     Key([mod, "shift"], "y", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/layoutmenu")), desc="Layout menu"),
 
 # === WINDOW STATE ===
@@ -242,8 +242,8 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/changevolume up")), desc="Volume up"),
     Key([], "XF86AudioLowerVolume", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/changevolume down")), desc="Volume down"),
     Key([], "XF86AudioMute", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/changevolume mute")), desc="Mute/Unmute"),
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%"), desc="Brightness up"),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-"), desc="Brightness down"),
+    Key([], "XF86MonBrightnessUp", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/changebrightness up")), desc="Brightness up"),
+    Key([], "XF86MonBrightnessDown", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/changebrightness down")), desc="Brightness down"),
 
 # === SCREENSHOTS ===
     Key([], "Print", lazy.spawn("flameshot full --path " + os.path.expanduser("~/Screenshots/")), desc="Screenshot (full)"),

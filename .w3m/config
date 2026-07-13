@@ -1,0 +1,24 @@
+# Kael OS - Configuración de w3m (Navegador Web de Terminal)
+
+# --- IMÁGENES Y RENDERING ---
+display_image 1
+image_display_method 1
+ext_halftone 1
+
+# --- COLORES (Tema Cyber-Rasta) ---
+color 1
+ansi_color 1
+bg_color black
+text_color #e0e0e0
+anchor_color green
+visited_anchor_color yellow
+
+# --- COMPORTAMIENTO ---
+use_cookie 1
+accept_cookie 1
+show_cookie 0
+mouse 1
+ext_browser /usr/bin/firefox-esr
+
+# --- NAVEGACIÓN ---
+vi_prec_num 1

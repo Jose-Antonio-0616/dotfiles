@@ -12,6 +12,10 @@ clean:
     @echo ''
     @sudo nala clean
 
+# actualizar repositorio dotfiles
+sdotfiles:
+    @git -C ~/dotfiles push -u origin main  
+
 # activar docker
 docker-start:
     @sudo systemctl start docker

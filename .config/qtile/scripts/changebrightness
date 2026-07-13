@@ -1,0 +1,47 @@
+#!/bin/bash
+# changebrightness - Control de brillo con notificación visual en pantalla (HUD)
+# Utiliza Dunst para renderizar la barra de progreso.
+#
+# Uso: changebrightness {up|down}
+
+STEP=5
+
+get_icon() {
+    local val=$1
+    if [ "$val" -le 30 ]; then
+        echo "display-brightness-low"
+    elif [ "$val" -le 70 ]; then
+        echo "display-brightness-medium"
+    else
+        echo "display-brightness-high"
+    fi
+}
+
+notify_brightness() {
+    local brightness icon
+    # Obtener el porcentaje (ej. 50% -> 50)
+    brightness=$(brightnessctl -m | cut -d, -f4 | tr -d '%')
+    icon=$(get_icon "$brightness")
+    
+    notify-send -a changebrightness -u low \
+        -h string:x-canonical-private-synchronous:brightness \
+        -h "int:value:$brightness" \
+        -i "$icon" \
+        -t 2000 \
+        "Brightness ${brightness}%"
+}
+
+case "$1" in
+    up)
+        brightnessctl set +"$STEP"%
+        notify_brightness
+        ;;
+    down)
+        brightnessctl set "$STEP"%-
+        notify_brightness
+        ;;
+    *)
+        echo "Usage: $0 {up|down}" >&2
+        exit 1
+        ;;
+esac
