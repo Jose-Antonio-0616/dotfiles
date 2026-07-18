@@ -41,5 +41,9 @@ if [ ! -d "$CHOSEN" ]; then
     mkdir -p "$CHOSEN"
 fi
 
-# 3. Lanzar Kitty con el directorio de trabajo correcto y abrir la aplicación TUI seleccionada
-kitty --working-directory "$CHOSEN" -e "$TUI_CMD" > /dev/null 2>&1 &
+# 3. Lanzar Kitty con el directorio de trabajo correcto
+if [ "$TUI_CMD" = "terminal" ]; then
+    kitty --working-directory "$CHOSEN" > /dev/null 2>&1 &
+else
+    kitty --working-directory "$CHOSEN" -e "$TUI_CMD" > /dev/null 2>&1 &
+fi

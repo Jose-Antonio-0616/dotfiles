@@ -168,6 +168,7 @@ keys = [
 # === LAUNCH ===
     Key([mod], "space", lazy.spawn("rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons -theme ~/.config/qtile/rofi/config.rasi"), desc="Launch Rofi"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod, "mod1"], "Return", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/tui_project_menu terminal")), desc="Launch Terminal Project Menu"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch browser"),
     Key([mod, "shift"], "b", lazy.spawn(browser + " -private-window"), desc="Launch browser (private)"),
     Key([mod], "e", lazy.spawn("thunar"), desc="Launch GUI file manager (Thunar)"),
