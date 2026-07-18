@@ -1,0 +1,42 @@
+#!/bin/bash
+# Kael OS - Selector de Proyectos para Neovim usando Rofi
+
+ROFI_THEME="$HOME/.config/qtile/rofi/config.rasi"
+
+# Directorios base para buscar proyectos (ajusta según necesites)
+SEARCH_DIRS=(
+    "$HOME/dev"
+    "$HOME/dotfiles"
+    "$HOME/.config"
+    "$HOME/Documents"
+)
+
+# 1. Recopilar todos los subdirectorios de primer y segundo nivel
+# Se usa `find` ignorando errores de permisos.
+PROJECTS=$(find "${SEARCH_DIRS[@]}" -maxdepth 2 -type d 2>/dev/null | sort -u)
+
+# Agregar el directorio HOME al principio por si acaso
+PROJECTS="$HOME\n$PROJECTS"
+
+# 2. Mostrar menú en Rofi
+# -dmenu permite recibir entrada por teclado
+# -p "Proyecto" es el título
+# Si escribes una ruta nueva que no está en la lista, Rofi la aceptará igual.
+CHOSEN=$(echo -e "$PROJECTS" | rofi -dmenu -i -p "Abrir Nvim en" -theme "$ROFI_THEME")
+
+# Si el usuario presiona Escape, CHOSEN estará vacío
+if [ -z "$CHOSEN" ]; then
+    exit 0
+fi
+
+# Expandir la tilde (~) si el usuario la usó manualmente
+CHOSEN="${CHOSEN/#\~/$HOME}"
+
+# Si la ruta escrita no existe, preguntar si desea crearla (opcional, aquí la creamos directamente si parece una ruta)
+if [ ! -d "$CHOSEN" ]; then
+    mkdir -p "$CHOSEN"
+fi
+
+# 3. Lanzar Kitty con el directorio de trabajo correcto y abrir Neovim
+# Redirigimos la salida para que no bloquee el script
+kitty --working-directory "$CHOSEN" -e nvim > /dev/null 2>&1 &

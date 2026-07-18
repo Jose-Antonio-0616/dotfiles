@@ -36,6 +36,12 @@ if [ -f "$target_file" ]; then
     if [ -f "$AUTOSTART" ]; then
         sed -i "s|feh --bg-center --image-bg black.*|feh --bg-center --image-bg black $target_file \&|" "$AUTOSTART"
     fi
+
+    # Actualizar la pantalla de bloqueo de LightDM de forma transparente
+    GREETER_BG="/usr/share/backgrounds/butterknife/butterknife-greeter.png"
+    if [ -w "$GREETER_BG" ]; then
+        convert "$target_file" "$GREETER_BG"
+    fi
     
     notify-send -u normal -i image-x-generic "Fondo de Pantalla" "Cambiado a $chosen exitosamente."
 else

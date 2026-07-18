@@ -11,7 +11,7 @@ else
 fi
 
 # background
-feh --bg-center --image-bg black /home/jose/.config/qtile/wallpaper/rasta_3.jpeg &
+feh --bg-center --image-bg black /home/jose/.config/qtile/wallpaper/rasta_1.jpeg &
 
 # GTK live theme updates
 xsettingsd &
@@ -30,11 +30,14 @@ udiskie &
 
 # First-login welcome (shown once, dismissable)
 if [ ! -f "$HOME/.cache/qtile/welcomed" ]; then
-	mkdir -p "$HOME/.cache/qtile"
-	touch "$HOME/.cache/qtile/welcomed"
-	(sleep 3; notify-send -u normal -t 15000 \
-		"Welcome to Qtile" \
-		"Press Super + / anytime to see all keybindings.&#10;See ~/QUICKSTART-qtile.md for a cheat sheet.") &
+    mkdir -p "$HOME/.cache/qtile"
+    touch "$HOME/.cache/qtile/welcomed"
+    (
+        sleep 3
+        notify-send -u normal -t 15000 \
+            "Welcome to Qtile" \
+            "Press Super + / anytime to see all keybindings.&#10;See ~/QUICKSTART-qtile.md for a cheat sheet."
+    ) &
 fi
 
 # Run pending updates checker

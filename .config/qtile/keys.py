@@ -173,12 +173,12 @@ keys = [
     Key([mod], "e", lazy.spawn("thunar"), desc="Launch GUI file manager (Thunar)"),
     
     # TUI Dev & Tooling Stack
-    Key([mod], "v", lazy.spawn("kitty -e nvim"), desc="Launch Neovim"),
-    Key([mod, "shift"], "v", lazy.spawn("kitty -e fresh"), desc="Launch Fresh TUI editor"),
-    Key([mod], "y", lazy.spawn("kitty -e yazi"), desc="Launch Yazi TUI file manager"),
+    Key([mod], "v", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/tui_project_menu nvim")), desc="Launch Neovim Project Menu"),
+    Key([mod, "shift"], "v", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/tui_project_menu fresh")), desc="Launch Fresh Project Menu"),
+    Key([mod], "y", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/tui_project_menu yazi")), desc="Launch Yazi Project Menu"),
     Key([mod], "z", lazy.spawn("kitty -e zellij"), desc="Launch Zellij multiplexer"),
-    Key([mod], "g", lazy.spawn("kitty -e lazygit"), desc="Launch Lazygit"),
-    Key([mod], "d", lazy.spawn("kitty -e lazydocker"), desc="Launch Lazydocker"),
+    Key([mod], "g", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/tui_project_menu lazygit")), desc="Launch Lazygit Project Menu"),
+    Key([mod], "d", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/tui_project_menu lazydocker")), desc="Launch Lazydocker Project Menu"),
     Key([mod], "s", lazy.spawn("kitty -e lazysql"), desc="Launch Lazysql"),
     Key([mod, "shift"], "s", lazy.spawn("kitty -e lazyssh"), desc="Launch Lazyssh"),
     Key([mod, "mod1"], "k", lazy.spawn("kitty -e k9s"), desc="Launch k9s Kubernetes TUI"),
