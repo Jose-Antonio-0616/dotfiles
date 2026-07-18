@@ -43,9 +43,6 @@ if [ -f "$target_file" ]; then
         convert "$target_file" "$GREETER_BG"
     fi
     
-    # Generar versión difuminada para el bloqueador de pantalla interno (i3lock) en segundo plano
-    convert "$target_file" -blur 0x12 "$HOME/.cache/qtile/blurred-wallpaper.png" &
-    
     notify-send -u normal -i image-x-generic "Fondo de Pantalla" "Cambiado a $chosen exitosamente."
 else
     notify-send "Wallpaper Menu" "Error: El archivo seleccionado no existe." -u critical

@@ -161,8 +161,8 @@ def toggle_treetab():
 keys = [
 # === WM CONTROL ===
     Key([mod], "q", lazy.window.kill(), desc="Close focused window"),
-    Key([mod, "shift"], "r", lazy.function(notify_restart()), lazy.restart(), desc="Restart Qtile"),
-    Key([mod], "l", lazy.spawn("kael-lock"), desc="Lock the screen"),
+    Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
+    Key(["control", "mod1"], "l", lazy.spawn("kael-lock"), desc="Lock the screen"),
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Exit Qtile"),
     Key([mod], "x", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/power")), desc="Power menu"),
 
