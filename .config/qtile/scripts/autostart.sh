@@ -42,3 +42,10 @@ fi
 
 # Run pending updates checker
 check-updates &
+
+# Bloqueo automático de pantalla (15 minutos = 900 segundos)
+# xset configura el temporizador de inactividad y apaga el monitor
+xset s 900
+xset dpms 900 900 900
+# xss-lock escucha los eventos de inactividad (y suspensión de logind) para lanzar kael-lock
+xss-lock -l -- ~/.config/qtile/scripts/kael-lock &

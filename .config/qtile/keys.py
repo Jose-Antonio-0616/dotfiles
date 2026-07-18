@@ -162,7 +162,7 @@ keys = [
 # === WM CONTROL ===
     Key([mod], "q", lazy.window.kill(), desc="Close focused window"),
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
-    Key(["control", "mod1"], "l", lazy.spawn("kael-lock"), desc="Lock the screen"),
+    Key(["control", "mod1"], "l", lazy.spawn("/home/jose/.config/qtile/scripts/kael-lock"), desc="Lock screen"),
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Exit Qtile"),
     Key([mod], "x", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/power")), desc="Power menu"),
 

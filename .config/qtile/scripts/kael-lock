@@ -1,0 +1,34 @@
+#!/bin/bash
+# Kael OS - Bloqueador de Pantalla (Realtime Blur)
+
+# Dependencias: imagemagick (import, convert), i3lock
+
+# i3lock-color se instala como 'i3lock' por defecto. Comprobamos su versión.
+if i3lock --version 2>&1 | grep -q "Raymond Li"; then
+    # Usamos -c 00000000 (transparente) y -B 10 (difuminado nativo ultrarrápido)
+    # Colores Cyber-Rasta (hex format RRGGBBAA)
+    # Verde rasta: 2ecc71ff, Amarillo rasta: f1c40fff, Rojo rasta: e74c3cff
+    # Fondo oscuro: 0c0c0eff
+    i3lock -n -c 00000000 -B 10 \
+        --ring-color=0c0c0eff \
+        --inside-color=0c0c0e88 \
+        --ringver-color=2ecc71ff \
+        --insidever-color=2ecc7188 \
+        --ringwrong-color=e74c3cff \
+        --insidewrong-color=e74c3c88 \
+        --keyhl-color=f1c40fff \
+        --bshl-color=e74c3cff \
+        --line-uses-inside \
+        --separator-color=0c0c0eff \
+        --verif-color=00000000 \
+        --wrong-color=00000000 \
+        --verif-text="" \
+        --wrong-text="" \
+        --indicator \
+        --radius=85 \
+        --ring-width=6.0
+else
+    # Fallback por si en el futuro se revierte a i3lock estándar
+    i3lock -c 000000 -i "$BLURRED" -e -f
+fi
+
