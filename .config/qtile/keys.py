@@ -56,11 +56,11 @@ def go_to_group(name):
     """Switch to group forcing specific monitor routing"""
     def _go_to_group(qtile):
         group_to_screen = {
-            '1': 0, # WS1: Term -> Laptop
-            '2': 1, # WS2: Code -> HDMI Externo
-            '3': 0, # WS3: Web/Preview -> Laptop
-            '4': 1, # WS4: Files/Media -> HDMI Externo
-            '5': 0, # WS5: Chat/Comms -> Laptop
+            '1': 0, # WS1 -> Laptop
+            '2': 0, # WS2 -> Laptop
+            '3': 0, # WS3: Navegador -> Laptop
+            '4': 1, # WS4 -> HDMI Externo
+            '5': 1, # WS5 -> HDMI Externo
         }
         target_screen = group_to_screen.get(name, 0)
         
@@ -171,7 +171,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod, "mod1"], "Return", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/tui_project_menu terminal")), desc="Launch Terminal Project Menu"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch browser"),
-    Key([mod, "shift"], "b", lazy.spawn(browser + " --incognito"), desc="Launch browser (private)"),
+    Key([mod, "mod1"], "b", lazy.spawn(browser + " --incognito"), desc="Launch browser (private)"),
     Key([mod], "e", lazy.spawn("thunar"), desc="Launch GUI file manager (Thunar)"),
     
     # TUI Dev & Tooling Stack
