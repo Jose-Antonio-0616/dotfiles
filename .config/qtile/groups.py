@@ -1,16 +1,16 @@
 from libqtile.config import Group, Match, ScratchPad, DropDown
 
 groups = [
-    Group('1', label="1", layout="monadtall"),
-    Group('2', label="2", layout="monadtall"),
-    Group('3', label="3", layout="monadtall", matches=[
+    Group('1', label="1", layout="bsp_manual"),
+    Group('2', label="2", layout="bsp_manual"),
+    Group('3', label="3", layout="bsp_manual", matches=[
         Match(wm_class="brave-browser"),
         Match(wm_class="Brave-browser"),
         Match(wm_class="brave-origin"),
         Match(wm_class="Brave-origin")
     ]),
-    Group('4', label="4", layout="monadtall", screen_affinity=1),
-    Group('5', label="5", layout="monadtall", screen_affinity=1),
+    Group('4', label="4", layout="bsp_manual", screen_affinity=1),
+    Group('5', label="5", layout="bsp_manual", screen_affinity=1),
 ]
 
 # Define scratchpads using Kitty terminal (Cyber-Rasta themed)

@@ -17,10 +17,10 @@ layout_theme = {
 # Bsp Fair - Dynamic auto-balanced splits (fair=True)
 # Max - Fullscreen focused window
 layouts = [
+    layout.Bsp(name="bsp_manual", **layout_theme, fair=False),
+    layout.Bsp(name="bsp_fair", **layout_theme, fair=True),
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
-    layout.Bsp(name="bsp", **layout_theme, fair=False),
-    layout.Bsp(name="bsp_fair", **layout_theme, fair=True),
     layout.Max(border_width=0, margin=0),
     layout.Floating(**layout_theme),
 ]
