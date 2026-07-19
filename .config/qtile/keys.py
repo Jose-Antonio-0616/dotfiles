@@ -6,7 +6,7 @@ from groups import groups
 
 mod = "mod4"
 terminal = "kitty"
-browser = "firefox-esr"
+browser = "brave-origin"
 
 def notify_layout():
     """Show current layout in notification"""
@@ -171,7 +171,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod, "mod1"], "Return", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/tui_project_menu terminal")), desc="Launch Terminal Project Menu"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch browser"),
-    Key([mod, "shift"], "b", lazy.spawn(browser + " -private-window"), desc="Launch browser (private)"),
+    Key([mod, "shift"], "b", lazy.spawn(browser + " --incognito"), desc="Launch browser (private)"),
     Key([mod], "e", lazy.spawn("thunar"), desc="Launch GUI file manager (Thunar)"),
     
     # TUI Dev & Tooling Stack
